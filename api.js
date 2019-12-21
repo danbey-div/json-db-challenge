@@ -112,8 +112,8 @@ async function addStudentProperty(req, res, next) {
       const properties = req.params['0'].split('/');
       let temp = data;
       for (let i = 0; i < properties.length; i++) {
-        if (properties[i] == '') break;
-        if (temp[properties[i]] == undefined) {
+        if (properties[i] === '') break;
+        if (temp[properties[i]] === undefined) {
           temp[properties[i]] = {};
         }
         temp = temp[properties[i]];
@@ -144,8 +144,8 @@ async function getStudentProperty(req, res, next) {
       data => {
         const properties = req.params['0'].split('/');
         for (let i = 0; i < properties.length; i++) {
-          if (properties[i] == '') break;
-          if (data[properties[i]] == undefined) {
+          if (properties[i] === '') break;
+          if (data[properties[i]] === undefined) {
             return res.status(404).send({
               error: 'Not Found'
             });
@@ -180,8 +180,8 @@ async function deleteStudentProperty(req, res, next) {
       let i,
         temp = data;
       for (i = 0; i < length - 1; i++) {
-        if (properties[i + 1] == '') break;
-        if (temp[properties[i]] == undefined) {
+        if (properties[i + 1] === '') break;
+        if (temp[properties[i]] === undefined) {
           return res.status(404).send({
             error: 'Not Found'
           });
